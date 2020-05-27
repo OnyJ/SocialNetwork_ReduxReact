@@ -16,9 +16,9 @@ const store = createStore(
 );
 
 const registerData = {
-  username: "eh",
-  email: "eh@heheh.com",
-  password: "hehehehe",
+  username: "eh6",
+  email: "eh6@heheh.com",
+  password: "hehehehe6",
 };
 
 const fetchRegister = () => {
@@ -31,18 +31,16 @@ const fetchRegister = () => {
       },
       body: JSON.stringify(registerData),
     })
-      // fetch("")
       .then((response) => response.json())
       .then((response) => {
-        console.log("response entiere");
         console.log(response);
-        console.log("fin response entiere");
-        if (response.status === "error") {
-          dispatch(fetchRegisterFailure(response.message));
+        if (response.error) {
+          dispatch(
+            fetchRegisterFailure(response.message[0].messages[0].message)
+          );
         } else {
-          dispatch(fetchRegisterSuccess(response.articles));
+          dispatch(fetchRegisterSuccess(response.user));
         }
-        // response.
       });
   };
 };
