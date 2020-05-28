@@ -19,9 +19,9 @@ const loggedInNavbar = (
     <br />
     <Link to="/profile">Profile</Link>
     <br />
-    <a href="#" onClick={LogOut}>
+    <span onClick={LogOut} class="link">
       Log Out
-    </a>
+    </span>
     <br />
   </nav>
 );
