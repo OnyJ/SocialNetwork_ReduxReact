@@ -28,7 +28,7 @@ const loggedInNavbar = (
 
 const Navbar = () => {
   return (
-    <>{true ? <div>{loggedInNavbar}</div> : <div>{loggedOutNavbar}</div>}</>
+    <>{false ? <div>{loggedInNavbar}</div> : <div>{loggedOutNavbar}</div>}</>
   );
 };
 

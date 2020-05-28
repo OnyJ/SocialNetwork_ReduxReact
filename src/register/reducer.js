@@ -1,6 +1,6 @@
 const initialState = {
   loading: false,
-  profile: [],
+  user: [],
   error: "",
 };
 
@@ -15,13 +15,20 @@ const registerReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        profile: action.profile,
+        user: action.user,
       };
     case "FETCH_REGISTER_FAILURE":
       return {
         ...state,
         loading: false,
         error: action.error,
+      };
+    case "SET_REGISTER_DATA":
+      return {
+        ...state,
+        username: action.username,
+        email: action.email,
+        password: action.password,
       };
     default:
       return state;
