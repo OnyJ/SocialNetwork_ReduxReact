@@ -2,17 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
-// Router
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
+
 import Navbar from "./components/Navbar";
 import Home from "./home/Home";
 import LogIn from "./connexion/LogIn";
 import Profile from "./profile/Profile";
 import OtherProfile from "./profile/OtherProfile";
-// Components
 import Register from "./register/Register";
-// Redux
-import { Provider } from "react-redux";
 import store from "./store";
 
 ReactDOM.render(
