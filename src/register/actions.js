@@ -1,10 +1,12 @@
+import Cookies from "js-cookie";
+
 const FETCH_REGISTER_REQUEST = "FETCH_REGISTER_REQUEST";
 const FETCH_REGISTER_SUCCESS = "FETCH_REGISTER_SUCCESS";
 const FETCH_REGISTER_FAILURE = "FETCH_REGISTER_FAILURE";
 const registerData = {
-  username: "eh6",
-  email: "eh6@heheh.com",
-  password: "hehehehe6",
+  username: "eh7",
+  email: "eh7@heheh.com",
+  password: "hehehehe7",
 };
 
 export const fetchRegisterRequest = () => {
@@ -45,6 +47,7 @@ export const fetchRegister = () => {
             fetchRegisterFailure(response.message[0].messages[0].message)
           );
         } else {
+          Cookies.set("token", response.jwt);
           dispatch(fetchRegisterSuccess(response.user));
         }
       });
