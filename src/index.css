@@ -12,7 +12,8 @@ code {
     monospace;
 }
 
-a {
+a,
+.link {
   color: #0a93ee;
   text-decoration: none;
 }
@@ -20,7 +21,9 @@ a:visited {
   color: #0a93ee;
   text-decoration: none;
 }
-a:hover {
+a:hover,
+.link:hover {
   color: rgb(0, 105, 170);
   font-size: 17px;
+  cursor: pointer;
 }
