@@ -1,43 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
-
-import Navbar from "./components/Navbar";
-import Home from "./home/Home";
-import LogIn from "./connexion/LogIn";
-import Profile from "./profile/Profile";
-import OtherProfile from "./profile/OtherProfile";
-import Register from "./register/Register";
 import store from "./store";
 
 ReactDOM.render(
-  <>
-    <Provider store={store}>
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/login">
-            <LogIn />
-          </Route>
-          <Route path="/profile">
-            <Profile />
-          </Route>
-          <Route path="/user/:user_name">
-            <OtherProfile />
-          </Route>
-        </Switch>
-      </Router>
-    </Provider>
-  </>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById("root")
 );
 

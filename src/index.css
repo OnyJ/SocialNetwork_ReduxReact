@@ -27,3 +27,23 @@ a:hover,
   font-size: 17px;
   cursor: pointer;
 }
+
+.center {
+  justify-content: center;
+  display: flex;
+}
+.center h1 {
+  text-align: center;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+input {
+  margin-bottom: 15px;
+}
+
+.margin {
+  margin-left: 20%;
+}

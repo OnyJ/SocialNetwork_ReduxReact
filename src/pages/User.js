@@ -1,0 +1,48 @@
+import React, { useEffect, useState } from "react";
+import Cookies from "js-cookie";
+
+import Post from "../posts/PostComponent";
+
+const User = (props) => {
+  const userId = props.location.state.userId;
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    fetch(`https://api-minireseausocial.mathis-dyk.fr/users/${userId}`, {
+      method: "get",
+      headers: {
+        Authorization: `Bearer ${Cookies.get("token")}`,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        setUser(response);
+      });
+  }, []);
+
+  return (
+    <div>
+      <h1>Profile</h1>
+      {user ? (
+        <>
+          <div>
+            <h3>{user.username}</h3>
+            <p>{user.email}</p>
+            <p>{user.description}</p>
+          </div>
+          <div>
+            <h2>{user.username}'s posts</h2>
+            <Post
+              url={`https://api-minireseausocial.mathis-dyk.fr/posts?user.id=${user.id}`}
+            />
+          </div>
+        </>
+      ) : (
+        <p></p>
+      )}
+    </div>
+  );
+};
+
+export default User;

@@ -1,21 +1,21 @@
-import { createStore, compose, applyMiddleware } from "redux";
-import thunkMiddleware from "redux-thunk";
+import { createStore, combineReducers, compose, applyMiddleware } from "redux";
+import postsReducer from "./posts/postsReducer";
+import registrationReducer from "./registration/registrationReducer";
+import loginReducer from "./login/loginReducer";
+import thunk from "redux-thunk";
 
-import registerReducer from "./register/reducer";
-import { fetchRegister } from "./register/actions";
+const rootReducer = combineReducers({
+  posts: postsReducer,
+  registration: registrationReducer,
+  login: loginReducer,
+});
 
 const store = createStore(
-  registerReducer,
+  rootReducer,
   compose(
-    applyMiddleware(thunkMiddleware),
+    applyMiddleware(thunk),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );
-
-store.subscribe(() => {
-  console.log("Store is now ", store.getState());
-});
-
-store.dispatch(fetchRegister());
 
 export default store;
